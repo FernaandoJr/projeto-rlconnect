@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-	<title>RLConnect</title>
-</head>
-<body>
-	<div class="flex items-center w-full justify-center">
-		<div class="">
-			<h1>Login</h1>
-			<p>Seja bem-vindo ao RLConnect</p>
-		</div>
-	</div>	
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="RLConnect - Login Page" />
+        <meta name="author" content="Lucas Oliveira" />
+        <link rel="stylesheet" href="./src/styles/style.css" />
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <title>RLConnect</title>
+    </head>
+    <body class="bg-[url(./src/assets/bg-login.jpg)] bg-cover bg-no-repeat bg-center bg-fixed">
+        <div class="flex items-center justify-center w-full h-screen">
+            <div class="flex flex-col gap-2 p-4 rounded-lg shadow-2xl shadow-black bg-white/20 backdrop-blur-xl w-96">
+                <h1 class="text-4xl font-bold text-center text-blue-500">Login</h1>
+                <p class="text-2xl font-semibold text-white">Seja bem-vindo ao <span class="text-orange-500">RL</span><span class="text-blue-500">Connect!</span></p>
+                <p class="font-normal text-gray-200 text-md text-opacity-30">Digite seu e-mail e senha para acessar nossa plataforma</p>
+                <script src="./src/js/handleSubmitLogin.js"></script>
+
+                <!-- LOGIN FORM -->
+                <form class="flex flex-col gap-2" id="login-form" onsubmit="handleSubmitLogin(event)">
+                    <div class="">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+                        <input
+                            type="email"
+                            id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="email@email.com"
+                            required
+                        />
+                    </div>
+
+                    <div class="">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Senha</label>
+                        <input
+                            type="password"
+                            id="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="••••••••"
+                            required
+                        />
+                    </div>
+                    <div class="flex flex-col justify-center gap-2">
+                        <p class="text-sm text-red-500" id="error-message"></p>
+                        <button
+                            type="submit"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                        >
+                            Entrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
