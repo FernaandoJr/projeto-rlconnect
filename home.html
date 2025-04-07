@@ -10,7 +10,7 @@
         <title>RLConnect - Home</title>
     </head>
     <body>
-        <header class="flex justify-between p-3 bg-slate-900">
+        <header class="fixed top-0 left-0 right-0 z-10 flex justify-between p-3 shadow-lg bg-slate-900">
             <div class="flex items-center justify-center">
                 <a href="./home.html" class="flex items-center gap-2 select-none">
                     <img src="./src/assets/logo.png" alt="" class="h-8" />
@@ -24,5 +24,80 @@
                 <li class="cursor-pointer hover:text-blue-300"><a href="./index.html">Sair</a></li>
             </ul>
         </header>
+        <!-- HERO BANNER-->
+        <section class="relative">
+            <img src="./src/assets/bg-home.jpg" alt="Imagem Banner" class="object-cover object-center w-full h-[90vh]" />
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center text-white bg-opacity-50 bg-black/30">
+                <h1 class="text-4xl font-bold">Seja bem-vindo ao <span class="text-orange-500">RL</span><span class="text-blue-500">Connect</span></h1>
+                <p class="text-lg">Lugar para encontrar seu parceiro de jogatina no RocketLeague!</p>
+				<a href="#know-more">
+
+					<button
+                    type="button"
+					
+					
+                    class="text-white cursor-pointer bg-gradient-to-br from-purple-600 to-blue-500 focus:ring-4 focus:outline-none focus:ring-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 ease-in-out hover:scale-105 active:scale-95"
+					>
+                    Conhecer mais!
+                </button>
+			</a>
+            </div>
+        </section>
+
+        <!-- CONTAINER DIV -->
+        <div class="container flex flex-col items-center mx-auto">
+            <!-- Texto -->
+            <section class="flex flex-col items-center justify-between gap-8 px-6 py-12 md:flex-row" id="know-more">
+                <div class="md:w-1/2">
+                    <h2 class="mb-4 text-3xl font-bold text-slate-900" >O que é Rocket League?</h2>
+                    <p class="text-lg leading-relaxed text-justify text-gray-700">
+                        Rocket League é um jogo de futebol de carro com foguetes, simples assim! Desenvolvido e publicado pela Psyonix. Lançado inicialmente em 2015, o jogo combina elementos de
+                        futebol com carros movidos a foguetes, criando uma experiência única e emocionante. Desde o seu lançamento, Rocket League conquistou milhões de jogadores ao redor do mundo e se
+                        tornou um dos principais jogos de eSports.
+                    </p>
+                    <p class="mt-4 text-lg leading-relaxed text-justify text-gray-700">
+                        Com uma jogabilidade dinâmica e gráficos vibrantes, Rocket League oferece modos de jogo competitivos e casuais, além de eventos sazonais e personalizações incríveis para os
+                        veículos.
+                    </p>
+
+                    <p class="mt-4 text-lg leading-relaxed text-justify text-gray-700">
+                        O jogo é conhecido por sua comunidade ativa e apaixonada, com torneios e ligas organizadas em todo o mundo. Se você está procurando uma experiência de jogo divertida e
+                        competitiva, Rocket League é a escolha perfeita!
+                    </p>
+                </div>
+
+                <!-- Imagem -->
+                <div class="md:w-1/2">
+                    <img src="./src/assets/rl-wallpaper.jpg" alt="Rocket League" class="object-cover w-full h-auto rounded-lg shadow-lg" />
+                </div>
+            </section>
+
+            <!-- Separador -->
+            <div class="container relative flex items-center justify-center my-12">
+                <div class="h-[2px] w-screen bg-gradient-to-r from-orange-500 via-blue-500 to-purple-600"></div>
+            </div>
+
+            <!-- Seção 2 -->
+			<section class="flex flex-col items-center justify-between gap-8 px-6 py-12 md:flex-row">
+				<div class="md:w-1/2">
+					<img src="./src/assets/rl-wallpaper2.webp" alt="Rocket League" class="object-cover w-full h-auto rounded-lg shadow-lg" />
+				</div>
+
+				<div class="md:w-1/2">
+					<h2 class="mb-4 text-3xl font-bold text-slate-900">O que é o RLConnect?</h2>
+					<p class="text-lg leading-relaxed text-justify text-gray-700">
+						O RLConnect é uma plataforma inovadora projetada para conectar jogadores de Rocket League em busca de parceiros de jogo. Com uma interface amigável e recursos avançados, o
+						RLConnect facilita a formação de equipes, a busca por amigos e a organização de partidas. Seja você um jogador casual ou competitivo, o RLConnect oferece uma experiência
+						personalizada para atender às suas necessidades.
+					</p>
+					
+					<p class="mt-4 text-lg leading-relaxed text-justify text-gray-700">
+						Cadastre-se gratuitamente colocando suas informações, como seu nome, rank atual, modos de jogo preferidos, horários disponíveis e um CPF válido. O RLConnect utiliza um algoritmo avançado para combinar jogadores com interesses semelhantes, garantindo que você encontre parceiros de jogo compatíveis e divirta-se jogando Rocket League.
+					</p>
+					<p class="mt-4 text-lg leading-relaxed text-justify text-gray-700">
+						Junte-se à comunidade do RLConnect e descubra novas oportunidades de jogo, faça amigos e melhore suas habilidades no Rocket League!
+					</p>
+				</div>
+        </div>
     </body>
 </html>
