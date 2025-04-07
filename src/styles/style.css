@@ -12,3 +12,12 @@
 .text-muted-foreground {
     color: hsl(var(--muted-foreground));
 }
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+
+    text-decoration: none;
+}

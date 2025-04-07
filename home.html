@@ -2,10 +2,27 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <link rel="stylesheet" href="./src/styles/style.css" />
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <script src="./src/js/handleLoggedIn.js"></script>
+        <title>RLConnect - Home</title>
     </head>
     <body>
-        asdadasdasdas
+        <header class="flex justify-between p-3 bg-slate-900">
+            <div class="flex items-center justify-center">
+                <a href="./home.html" class="flex items-center gap-2 select-none">
+                    <img src="./src/assets/logo.png" alt="" class="h-8" />
+                    <h1 class="justify-center text-xl font-bold text-white"><span class="text-orange-500">RL</span><span class="text-blue-500">Connect</span></h1>
+                </a>
+            </div>
+            <ul class="flex flex-row items-center gap-4 p-2 font-bold text-white text-md">
+                <li class="cursor-pointer hover:text-blue-300"><a href="#">Home</a></li>
+                <li class="cursor-pointer hover:text-blue-300"><a href="#">Sobre</a></li>
+                <li class="cursor-pointer hover:text-blue-300"><a href="#">Contato</a></li>
+                <li class="cursor-pointer hover:text-blue-300"><a href="./index.html">Sair</a></li>
+            </ul>
+        </header>
     </body>
 </html>

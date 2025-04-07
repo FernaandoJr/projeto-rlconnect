@@ -1,3 +1,5 @@
+localStorage.setItem("loggedIn", false);
+
 function handleSubmitLogin(event) {
     event.preventDefault();
     const email = document.getElementById("email");
@@ -6,8 +8,8 @@ function handleSubmitLogin(event) {
     console.log(email.value, password.value);
     if (email.value === "teste@teste.com" && password.value === "teste") {
         alert("Login realizado com sucesso!");
-        window.location.href = "./home.html";
         localStorage.setItem("loggedIn", true);
+        window.location.href = "./home.html";
     } else {
         alert("Email ou senha incorretos!");
         document.getElementById("email").value = "";
@@ -17,7 +19,6 @@ function handleSubmitLogin(event) {
         document.getElementById("error-message").innerHTML = "Email ou senha incorretos!";
         document.getElementById("error-message").style.display = "flex";
 
-        timeout = 3000;
         setTimeout(() => {
             document.getElementById("error-message").style.display = "none";
         }, timeout);
