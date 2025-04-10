@@ -6,23 +6,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./src/styles/style.css" />
         <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-        <script src="./src/js/handleLoggedIn.js"></script>
+        <script src="./src/js/index/handleLoggedIn.js"></script>
         <title>RLConnect - Home</title>
     </head>
     <body>
-        <header class="fixed top-0 left-0 right-0 z-10 flex justify-between p-3 shadow-lg bg-slate-900">
+        <header class="fixed top-0 left-0 right-0 z-10 flex justify-between p-3 shadow-lg select-none bg-slate-900" id="navbar">
             <div class="flex items-center justify-center">
                 <a href="./home.html" class="flex items-center gap-2 select-none">
-                    <img src="./src/assets/logo.png" alt="" class="h-8" />
+                    <img src="./src/assets/logo.png" alt="Banner de fundo" class="h-8" />
                     <h1 class="justify-center text-xl font-bold text-white"><span class="text-orange-500">RL</span><span class="text-blue-500">Connect</span></h1>
                 </a>
             </div>
-            <ul class="flex flex-row items-center gap-4 p-2 font-bold text-white text-md">
+
+            <ul
+                class="fixed left-0 right-0 flex flex-col items-center justify-center w-full gap-2 p-4 text-xl text-white bg-slate-900 z-9 top-12 text-bold sm:flex-row sm:items-center sm:gap-4 sm:p-2 sm:font-bold sm:text-base sm:top-auto sm:z-auto sm:bg-transparent sm:relative sm:w-auto sm:!flex"
+                id="navbar-list"
+            >
                 <li class="cursor-pointer hover:text-blue-300"><a href="#">Home</a></li>
                 <li class="cursor-pointer hover:text-blue-300"><a href="#about-us">Sobre</a></li>
-                <li class="cursor-pointer hover:text-blue-300"><a href="#">Contato</a></li>
                 <li class="cursor-pointer hover:text-blue-300"><a href="./index.html">Sair</a></li>
             </ul>
+
+            <div class="flex items-center px-1 cursor-pointer sm:hidden" onclick="handleNavbar()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+            </div>
         </header>
 
         <!-- HERO BANNER-->
@@ -30,7 +41,7 @@
             <img src="./src/assets/bg-home.jpg" alt="Imagem Banner" class="object-cover object-center w-full h-[90vh]" />
             <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center text-white bg-opacity-50 bg-black/30">
                 <h1 class="text-4xl font-bold">Seja bem-vindo ao <span class="text-orange-500">RL</span><span class="text-blue-500">Connect</span></h1>
-                <p class="text-lg">Lugar para encontrar seu parceiro de jogatina no RocketLeague!</p>
+                <p class="w-full px-4 text-lg sm:px-0">Lugar para encontrar seu parceiro de jogatina no RocketLeague!</p>
                 <a href="#know-more">
                     <button
                         type="button"
@@ -194,89 +205,141 @@
                 <div class="h-[2px] w-screen bg-gradient-to-r from-orange-500 via-blue-500 to-purple-600"></div>
             </div>
 
-            <!-- CADSTRO -->
-            <section class="flex flex-col gap-2 px-8 py-8 border-2 border-gray-200 rounded-md">
+            <!-- CADASTRO -->
+            <section class="flex flex-col gap-2 p-4 m-6 border-2 border-gray-200 rounded-md sm:m-0 w-fit">
                 <div class="flex flex-col items-center justify-center w-full gap-4">
                     <h1 class="text-4xl font-bold">Cadastre-se</h1>
                     <p class="text-lg">Crie sua conta e comece a jogar com seus amigos!</p>
                 </div>
-                <form action="">
+                <form onsubmit="handleSubmitForm(event)" action="" id="form">
                     <div class="relative mb-4">
-                        <label for="name" class="text-sm leading-7 text-gray-600">Nome</label>
+                        <label for="name" class="text-sm leading-7 text-gray-600 select-none" id="label-name">Nome</label>
                         <input
+                            required
                             type="text"
-							placeholder="Nome Completo"
+                            placeholder="Nome Completo"
                             id="name"
                             name="name"
                             class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                         />
+                        <p class="ml-1 text-sm font-bold leading-8 text-red-500" id="name-error-message"></p>
                     </div>
-					<div class="relative mb-4">
-                        <label for="cpf" class="text-sm leading-7 text-gray-600">CPF</label>
+                    <div class="relative mb-4">
+                        <label for="cpf" class="text-sm leading-7 text-gray-600 select-none" id="label-cpf">CPF</label>
                         <input
+                            required
                             type="text"
-							placeholder="000.000.000-00"
-							pattern="\d*"
-							maxlength="11"
-							onchange="validarCPF()"
+                            placeholder="000.000.000-00"
+                            maxlength="14"
                             id="cpf"
                             name="cpf"
                             class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                         />
-                        <p class="text-sm font-bold leading-8 text-red-500" id="error-message"></p>
+                        <p class="text-sm font-bold leading-8 text-red-500" id="cpf-error-message"></p>
                     </div>
                     <div class="relative mb-4">
-                        <label for="email" class="text-sm leading-7 text-gray-600">Email</label>
+                        <label for="email" class="text-sm leading-7 text-gray-600 select-none" id="label-email">Email</label>
                         <input
+                            required
                             type="email"
-							placeholder="email@email.com"
+                            placeholder="example@domain.com"
                             id="email"
                             name="email"
                             class="w-full px-3 py-1 text-base leading-8 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
                         />
+                        <p class="ml-1 text-sm font-bold leading-8 text-red-500" id="email-error-message"></p>
                     </div>
                     <div class="relative mb-4">
-                        <label for="email" class="text-sm leading-7 text-gray-600">Rank Atual</label>
+                        <label for="rank" class="text-sm leading-7 text-gray-600 select-none">Rank Atual</label>
                         <select
+                            required
                             id="rank"
                             name="rank"
                             class="w-full px-3 py-3 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
-                        /> 
-							<option value="bronze">Bronze</option>
-							<option value="prata">Prata</option>
-							<option value="ouro">Ouro</option>
-							<option value="platina">Platina</option>
-							<option value="diamante">Diamante</option>
-							<option value="champion">Champion</option>
-							<option value="grand-champion">Grand Champion</option>
-							<option value="supersonic-legend">Supersonic Legend</option>
-						</select>
-
+                        >
+                            <option value="bronze">Bronze</option>
+                            <option value="prata">Prata</option>
+                            <option value="ouro">Ouro</option>
+                            <option value="platina">Platina</option>
+                            <option value="diamante">Diamante</option>
+                            <option value="champion">Champion</option>
+                            <option value="grand-champion">Grand Champion</option>
+                            <option value="supersonic-legend">Supersonic Legend</option>
+                        </select>
                     </div>
 
-					<div class="relative mb-4">
-                        <label for="email" class="text-sm leading-7 text-gray-600">Modos Preferidos</label>
+                    <div class="relative mb-4">
+                        <label for="preferred-modes" class="text-sm leading-7 text-gray-600 select-none">Modos Preferidos</label>
                         <select
+                            required
                             id="preferred-modes"
                             name="preferred-modes"
                             class="w-full px-3 py-3 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
-                        /> 
-							<option value="1v1">1v1</option>
-							<option value="2v2">2v2</option>
-							<option value="3v3">3v3</option>
-							<option value="4v4">4v4</option>
-							<option value="hoops">Hoops</option>
-							<option value="rumble">Rumble</option>
-							<option value="dropshot">Dropshot</option>
-							<option value="snow-day">Snow Day</option>
-						</select>
+                        >
+                            <option value="1v1">1v1</option>
+                            <option value="2v2">2v2</option>
+                            <option value="3v3">3v3</option>
+                            <option value="4v4">4v4</option>
+                            <option value="hoops">Hoops</option>
+                            <option value="rumble">Rumble</option>
+                            <option value="dropshot">Dropshot</option>
+                            <option value="snow-day">Snow Day</option>
+                        </select>
                     </div>
+                    <p class="ml-1 text-sm font-bold leading-8 text-red-500" id="form-error-message"></p>
 
+                    <button
+                        type="submit"
+                        class="text-white cursor-pointer bg-gradient-to-br from-green-600 to-green-500 focus:ring-4 focus:outline-none focus:ring-transparent font-medium rounded-lg text-sm px-5 py-2.5 text-center transition-all duration-300 ease-in-out hover:scale-101 active:scale-97 select-none w-full"
+                    >
+                        Enviar
+                    </button>
                 </form>
             </section>
         </div>
-		<script src="./src/js/handleCpfMask.js"></script>
-		<script src="./src/js/handleCpfValid.js"></script>
 
+        <!-- SUCCESS SUBMIT TOAST -->
+        <div class="fixed bottom-[-100px] flex justify-end w-full transition-all duration-300 ease-in-out opacity-0 pointer-events-none" id="success-toast">
+            <div class="flex items-center justify-between w-full max-w-sm p-4 m-4 text-white bg-green-600 rounded-lg shadow-lg">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <span class="text-sm font-bold">Cadastro realizado com sucesso!</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+
+        <footer class="mt-4 bg-white shadow-sm dark:bg-gray-900">
+            <div class="w-full max-w-screen-xl p-4 mx-auto md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="https://flowbite.com/" class="flex items-center mb-4 space-x-3 sm:mb-0 rtl:space-x-reverse">
+                        <img src="./src/assets/logo.png" alt="RL Logo" class="h-8" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"><span class="text-orange-500">RL</span><span class="text-blue-500">Connect</span></span>
+                    </a>
+                    <ul class="flex flex-wrap items-center mb-4 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                        <li>
+                            <a href="#" class="hover:underline me-4 md:me-6">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about-us" class="hover:underline me-4 md:me-6">Sobre</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/FernaandoJr/projeto-rlconnect" target="_blank" class="hover:underline me-4 md:me-6">Github</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-6" />
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"
+                    >© 2025 <a href="https://flowbite.com/" class="hover:underline">RLConnect™</a>. Todos Direitos Reservados.</span
+                >
+            </div>
+        </footer>
+
+        <script src="./src/js/home/cpf/handleCpfMask.js"></script>
+        <script src="./src/js/home/handleNavbar.js"></script>
+        <script src="./src/js/home/form/handleSubmitForm.js"></script>
     </body>
 </html>
